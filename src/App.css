@@ -1,3 +1,7 @@
+/*
+Layout of all pages
+*/
+
 .App
 {
     text-align: center;
@@ -11,100 +15,80 @@
 
 .page-header
 {
-    min-height: 100vh;
+    min-height: 120vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
+.page-header
+{
+  position: center;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+
+img
+{
+  width: 50%;
+  height: auto;
+  opacity: 0.3;
+}
+
 body
 {
-    background-color: #282c34;
+    background-color: lightgreen;
 }
 
-/* Scroll Bar */
-
-body::-webkit-scrollbar
-{
-    width: 0.35em;
+/*
+Form layout
+*/
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-body::-webkit-scrollbar-track
-{
-    background: #282c34;
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-body::-webkit-scrollbar-thumb
-{
-    background: darkslategrey;
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-/* Buttons */
-
-button
-{
-    background-color: darkcyan;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: calc(10px + 1vmin);
-    padding: 10px;
-    margin: 20px 10px 0 10px;
+button[type=submit]:hover {
+  background-color: #45a049;
 }
 
-button:hover
-{
-    background-color: lightseagreen;
+/*
+  UserProfile layout
+*/
+
+div[type=userprofile] {
+  text-align:center;
 }
-
-button:active
-{
-    position: relative;
-    top: 2px;
-}
-
-button:active,
-button:focus
-{
-    outline: none;
-}
-
-fieldset
-{
-    border: thin solid gray;
-    width: 50%;
-    margin: auto;
-}
-
-legend
-{
-    padding: 0.5rem 2rem;
-    outline: thin solid gray;
-}
-
-/* Input Fields */
-
-input
-{
-    padding: 10px;
-    border: medium solid #282c34;
-    border-radius: 10px;
-}
-
-input:focus
-{
-    position: relative;
-    border: medium solid lightgreen;
-}
-
-input:focus,
-input:active
-{
-    outline: none;
-}
-
-/* Debit/Credit Cards */
 
 .debit-card,
 .credit-card
@@ -113,19 +97,19 @@ input:active
     transition: box-shadow 0.6s;
 
     box-shadow: 0 8px 8px 0 rgba(0,0,0,0.5);
-    border-radius: 25px;
+    border-radius: 30px;
     transition: 0.3s;
-    padding: 2px 16px;
+    padding: 3px 16px;
 }
 
 .debit-card
 {
-    background-color: #311e1e;
+    background-color: lightblue;
 }
 
 .credit-card
 {
-    background-color: #1e3131;
+    background-color: lightblue;
 }
 
 .debit-card:hover,
@@ -135,33 +119,24 @@ input:active
     box-shadow: 0 16px 12px 0 rgba(0,0,0,0.5);
 }
 
-.debit-description,
-.credit-description
+.debit-Description,
+.credit-Description
 {
-    border-radius: 25px;
+    border-radius: 50px;
 }
 
-.debit-description
+.debit-Description
 {
-    background-color: #8f581a;
+    background-color: lightgreen;
 }
 
-.credit-description
+.credit-Description
 {
-    background-color: #1a548f;
+    background-color: lightgreen;
 }
 
 .debit-details,
 .credit-details
 {
     text-align: left;
-}
-
-.debit-card-grid,
-.credit-card-grid
-{
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    padding: 2rem 4rem 4rem;
 }

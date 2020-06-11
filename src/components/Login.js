@@ -30,11 +30,12 @@ class LogIn extends Component {
 
   render () {
     if (this.state.redirect) {
-      return (<Redirect to="/"/>)
+      return (<Redirect to="/userProfile"/>)
     }
 
     return (
-      <div>
+      <div className="page-header">
+        <img src ="https://th.bing.com/th/id/OIP.Ko9hfUoZbaSCaUtjBuWzSgHaHQ?w=229&h=218&c=7&o=5&dpr=1.25&pid=1.7" alt ="bank" />
         <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="userName">User Name</label>
@@ -44,7 +45,7 @@ class LogIn extends Component {
             <label htmlFor="password">Password</label>
             <input type="password" name="password" />
           </div>
-          <button>Log In</button>
+          <button type ="submit">Log In</button>
         </form>
       </div>
     )
