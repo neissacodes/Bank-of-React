@@ -17,7 +17,27 @@ class Debit extends Component {
         date: "",
       },
     };
+      this.handleChange = this.handleChange.bind(this);
   }
+
+
+    handleChange = (e) => {
+      const debitUpdate = {...this.state.debit};
+      const input = e.target.name;
+      const valueOfInput = e.target.value
+
+      debitUpdate[input] = valueOfInput;
+      if(input === "amount"){
+        debitUpdate.amount = Number(valueOfInput);
+      }
+      this.setState({ debit: debitUpdate });
+    };
+
+    handleSubmit = (e) => {
+      e.preventDefault();
+      console.log("Add button clicked");
+      this.props.getDebit(this.state.debit);
+    };
 
   render() {
     return (
@@ -38,19 +58,23 @@ class Debit extends Component {
           <fieldset>
             <legend> Add new Debit </legend>
             <form
-            //onSubmit={this.handleSubmit}
+            onSubmit={ this.handleSubmit }
             >
               <label htmlFor="description"> Description: </label>
-              <input type="text" name="description" placeholder="Name of item"  required />
+              <input type="text" name="description" placeholder="Name of item" value={this.state.debit.description}
+              onChange={ this.handleChange }
+              required />
 
               <label htmlFor="amout"> Amount: </label>
-              <input type="number" name="amount" placeholder="0.00" required />
+              <input type="number" name="amount" placeholder="0.00" value={this.state.debit.amount}
+              onChange={ this.handleChange }
+              required />
               <button type="submit"> Submit </button>
             </form>
           </fieldset>
 
           <section className="debit-grid">
-              {this.debitGenerator(this.props.data)}
+              { this.debitGenerator(this.props.data) }
           </section>
       </div>
 

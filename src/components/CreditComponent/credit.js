@@ -17,8 +17,26 @@ constructor(props)
         date: "",
       },
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
+  handleChange = (e) => {
+    const creditUpdate = {...this.state.credit};
+    const input = e.target.name;
+    const valueOfInput = e.target.value
+
+    creditUpdate[input] = valueOfInput;
+    if(input === "amount"){
+      creditUpdate.amount = Number(valueOfInput);
+    }
+    this.setState({ credit: creditUpdate });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Add button clicked");
+    this.props.getCredit(this.state.credit);
+  };
 
 
   render() {
@@ -40,16 +58,16 @@ constructor(props)
           <fieldset>
             <legend> Add new Credit </legend>
             <form
-            //onSubmit={this.handleSubmit}
+            onSubmit={this.handleSubmit}
             >
               <label htmlFor="description"> Description: </label>
               <input type="text" name="description" placeholder="Name of item" value={this.state.credit.description}
-              //onChange={this.handleChange}
+              onChange={this.handleChange}
               required />
 
               <label htmlFor="amout"> Amount: </label>
               <input type="number" name="amount" placeholder="0.00" value={this.state.credit.amount}
-              //onChange={this.handleChange}
+              onChange={this.handleChange}
               required />
               <button type="submit"> Submit </button>
             </form>
